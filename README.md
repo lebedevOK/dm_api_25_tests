@@ -1,20 +1,15 @@
 # DM API Tests
 
-Проект автоматизации тестирования API для DM.
+_API test automation project for DM.
 
-## Установка
+## Installation
 
-1. Клонировать репозиторий:
-```bash
-git clone https://github.com/lebedevOK/dm_api_25_tests.git
-```
-
-2. Создать виртуальное окружение:
+1. Create virtual environment:
 ```bash
 python -m venv venv
 ```
 
-3. Активировать виртуальное окружение:
+2. Activate virtual environment:_
 ```bash
 # Windows
 venv\Scripts\activate
@@ -22,26 +17,26 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-4. Установить зависимости:
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Структура проекта
+## Project Structure
 
-- `tests/` - тесты
-- `dm_api_account/` - методы работы с API
-- `utilities/` - вспомогательные функции
-- `configuration.py` - конфигурация проекта
-- `conftest.py` - фикстуры pytest
+- `tests/` - test cases
+- `dm_api_account/` - API client methods
+- `utilities/` - helper functions
+- `configuration.py` - project configuration
+- `conftest.py` - pytest fixtures
 
-## Запуск тестов
+## Running Tests
 
 ```bash
 pytest tests/
 ```
 
-## Генерация отчета Allure
+## Generating Allure Report
 
 ```bash
 pytest tests/ --alluredir=allure-results
