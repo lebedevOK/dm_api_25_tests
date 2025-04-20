@@ -1,5 +1,5 @@
 import pytest
-from dm_api_account.api import AccountApi
+from dm_api_account0.api import AccountApi
 from configuration import config
 
 @pytest.fixture
