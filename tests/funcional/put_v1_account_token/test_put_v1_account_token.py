@@ -9,7 +9,7 @@ from api_mailhog.apis.mailhog_api import MailhogApi
 from utilities.helpers import Helpers
 
 
-def test_post_v1_account():
+def test_put_v1_account_token():
     # Регистрация пользователя
     account_api = AccountApi(host='http://5.63.153.31:5051')
     login_api = LoginApi(host='http://5.63.153.31:5051', email='email')
@@ -59,27 +59,7 @@ def test_post_v1_account():
     print(email)
     print(password)
 
-    # Записываем email пользователя в файл
-#     add_user_to_list(email)
-#
-#
-# def add_user_to_list(email):
-#     users_list_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'utilities', 'users_list.txt')
-#     with open(users_list_path, 'a', encoding='utf-8') as f:
-#         f.write(f'{email}\n')
 
-
-
-
-# def get_activation_token_by_login(login, response):
-#     token = None
-#     for item in response.json()['items']:
-#         user_data = json.loads(item['Content']['Body'])
-#         user_login = user_data['Login']
-#         if user_login == login:
-#             token = user_data['ConfirmationLinkUrl'].split('/')[-1]
-#             break
-#     return token
 
 
 
