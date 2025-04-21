@@ -27,8 +27,6 @@ pip install -r requirements.txt
 - `tests/` - test cases
 - `dm_api_account/` - API client methods
 - `utilities/` - helper functions
-- `configuration.py` - project configuration
-- `conftest.py` - pytest fixtures
 
 ## Running Tests
 
