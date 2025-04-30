@@ -1,3 +1,4 @@
+import uuid
 from random import randint
 import time
 import json
@@ -30,7 +31,7 @@ def test_post_v1_account():
     mailhog = MailHogApi(configuration=mailhog_configuration)
     account_helper = AccountHelper(dm_account_api=account, mailhog=mailhog)
 
-    login = f'al{randint(1, 9999)}'
+    login = f"al{uuid.uuid4().hex[:8]}"
     password = '123456789'
     email = f"{login}@qw.ru"
     account_helper.register_new_user(login=login, password=password, email=email)

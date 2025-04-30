@@ -1,3 +1,4 @@
+import uuid
 from random import randint
 import time
 import json
@@ -27,7 +28,8 @@ def test_post_v1_account_login():
     mailhog = MailHogApi(configuration=mailhog_configuration)
     account_helper = AccountHelper(dm_account_api=account, mailhog=mailhog)
 
-    login = f'al{randint(1, 9999)}'
+    # login = f'al{randint(1, 9999)}'
+    login = f"al{uuid.uuid4().hex[:8]}"
     password = '123456789'
     email = f"{login}@qw.ru"
     account_helper.register_new_user(login=login, password=password, email=email)
@@ -56,8 +58,8 @@ def test_post_v1_account_login():
     # response = account.account_api.put_v1_account_token(token=token)
     # assert response.status_code == 200, f'Пользователь не был активирован. Статус код ответа {response.status_code}'
 
-    account_helper.user_login(login=login, password=password)
     # # Авторизация пользователя
+    account_helper.user_login(login=login, password=password)
     # json_data = {
     #     'login': login,
     #     'password': password,
