@@ -74,6 +74,19 @@ class AccountHelper:
         assert response.status_code == 200, f'Пользователь не смог авторизоваться. Статус код ответа {response.status_code}'
         return response
 
+    def logout_user(
+            self
+    ):
+        response = self.dm_account_api.login_api.delete_v1_account_login()
+        assert response.status_code == 204
+        return response
+
+    def delete_all_user(self, token: str):
+        headers = {'X-Dm-Auth-Token': token}
+        response = self.dm_account_api.login_api.delete_v1_account_login_all(headers=headers)
+        assert response.status_code == 204
+        return response
+
     def change_password(self, login: str, email: str, new_password: str):
         """
         Смена пароля пользователя по сбросу через email
