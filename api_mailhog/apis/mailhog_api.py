@@ -4,7 +4,7 @@ from restclient.client import RestClient
 
 class MailhogApi(RestClient):
 
-    def get_api_v2_messages(self, limit=10):
+    def get_api_v2_messages(self, limit=15):
         """
         Get list of messages
         :return: Response

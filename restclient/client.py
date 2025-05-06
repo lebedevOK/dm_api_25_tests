@@ -8,10 +8,14 @@ from restclient.configuration import Configuration
 class RestClient:
     def __init__(self, configuration: Configuration):
         self.host = configuration.host
-        self.headers = configuration.headers
+        self.set_headers(configuration.headers)
         self.disable_log = configuration.disable_log
         self.session = Session()
         self.log = structlog.get_logger(__name__).bind(service='api')
+
+    def set_headers(self, headers):
+        if headers:
+            self.session.headers.update(headers)
 
 
     def post(self, path, **kwargs):
@@ -31,7 +35,7 @@ class RestClient:
 
     def _send_request(self, method, path, **kwargs):
         log = self.log.bind(event_id=str(uuid.uuid4()))
-        full_url = f"{self.host}/{path}"
+        full_url = f"{self.host}{path}"
         if self.disable_log:
             rest_response = self.session.request(method=method, url=full_url, **kwargs)
             return rest_response
